@@ -1,7 +1,7 @@
 const showAvailableBooksBtn = document.getElementById('showAvailableBooks');
 const showBorrowedBooksBtn = document.getElementById('showBorrowedBooks');
 const bookContainer = document.getElementById('bookContainer');
-const baseUrl = 'http://localhost:3000/Books';
+const baseUrl = 'https://puzzled-prairie-bandicoot.glitch.me/Books';
 
 // fuction to fetch books from the server
 
@@ -45,7 +45,7 @@ function createBookCrd(book){
     <p>Category: ${book.category}</p>
     <p>${book.isAvailable ? 'Available' : 'Borrowed'}</p>
     ${book.isAvailable ? `<button id="borrowBookBtn">Borrow</button>` : `<button id="returnBookBtn">Return</button>`}
-    
+
     `;
   return card;
 }

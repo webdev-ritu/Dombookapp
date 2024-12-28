@@ -1,32 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            background-color: rgb(194, 191, 191);
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            align-items: center;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 200px;
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button {
+            padding: 8px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        #error-message {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-    <div id="navbar">
-        <div class="container">
-            <h2>Book Managment System</h2>
-            <ul>
-                <li><a href="./index.html">Home</a></li>
-                <li><a href="./books.html">Books</a></li>
-                <li><a href="./admin.html">Admin</a></li>
-                <li><a href="#" onclick="logout()">Logout</a></li>
-            </ul>
-        </div>
-        
-    </div>
-    <div class="container">
-        <h1>Login</h1>
-        <form onsubmit="handleLogin(event)">
-            <input type="email" id="email" placeholder="Email" required>
-            <input type="password" id="password" placeholder="Password" required>
-            <button type="submit">Login</button>
-        </form>
-    </div>
-    <script src="./scripts/index.js"></script>
-    <script src="./scripts/navbar.js"></script>
+
+    <form id="loginForm">
+        <h1>Book Management System</h1>
+        <h2>Login</h2>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <button type="submit">Login</button>
+        <p id="error-message"></p>
+    </form>
+
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const errorMessage = document.getElementById('error-message');
+
+        loginForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const email = emailInput.value;
+            const password = passwordInput.value;
+
+            // Validate credentials
+            if (email === 'admin@empher.com' && password === 'empher@123') {
+                // Admin login
+                errorMessage.textContent = '';
+                localStorage.setItem('loginData', JSON.stringify({ role: 'admin' }));
+                window.location.href = 'admin.html';
+                alert('Logged in as Admin.');
+            } else if (email === 'user@empher.com' && password === 'user@123') {
+                // User login
+                errorMessage.textContent = '';
+                localStorage.setItem('loginData', JSON.stringify({ role: 'user' }));
+                window.location.href = 'books.html';
+            } else {
+                // Invalid credentials
+                errorMessage.textContent = 'Invalid email or password.';
+            }
+        });
+    </script>
+    <script type="module" src="./scripts/navbar.js"></script>
+
 </body>
 </html>

@@ -1,0 +1,73 @@
+body{
+    background-color: #efeff0;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+#bookContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+.book-card{
+    border: 1px solid #e9ecef;
+    padding: 10px;
+    border-radius: 5px;
+}
+.book-card h3{
+    margin-top: 0;
+}
+.book-image{
+    max-width: 100%;
+
+
+}
+.container{
+    padding: 20px;
+}
+#navbar{
+    background-color: #343a40;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#navbar a{
+    color: white;
+    text-decoration: none;
+}
+#navbar a:hover{
+    color: #f8f9fa;
+}
+#navbar h2{
+    margin: 0;
+}
+#navbar ul{
+    list-style-type: none;
+    display: flex;
+}
+#navbar  li{
+    margin-right: 10px;
+}
+.login-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.login-container input{
+    margin: 10px 0;
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.login-container button{
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #343a40;
+    color: white;
+    border: none;
+}
